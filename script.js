@@ -16,10 +16,12 @@ let yourWins = 0;
 
 //while loop to begin battle
 while (yourHealth > 0 || grantHealth > 0) {
+    console.log(`${yourName} has ${yourHealth} health left.`);
+    console.log(`Grant the Mighty Chicken has ${grantHealth} health left.`);
+
 yourHealth -= (Math.ceil(Math.random()*2));
 grantHealth -= (Math.ceil(Math.random()*2));
-console.log(`${yourName} has ${yourHealth} health points.`);
-console.log(`Grant has ${grantHealth} health points.`);
+
 
 
 
@@ -27,14 +29,16 @@ console.log(`Grant has ${grantHealth} health points.`);
     if (grantHealth <= 0) {
         //grant is defeated AND you get 1 win, Grant gets 10 health points
         yourWins++;
-        console.log(`Congratulations. You beat Grant ${yourWins} time\(s\).`);
+        console.log(`Fatal blow! Grant has ${grantHealth} health.`);
+        console.log(`${yourName} beat Grant ${yourWins} time\(s\).`);
             //if you have 3 wins, you win. Game over
         if (yourWins === 3) {
-            console.log("Grant gives up. You beat him 3 times.");
+            console.log(`Grant has no more health potions. ${yourName} wins!!!`);
             break;
             
         } else {
             grantHealth = 10;
+            console.log(`Grant drank a health potion and is back for more!`);
             continue;
         }
 
@@ -45,7 +49,7 @@ console.log(`Grant has ${grantHealth} health points.`);
 
 
     //if Grant wins, game over.
-    if (yourHealth === 0) {
+    if (yourHealth <= 0) {
         console.log("Grant beat you. Game over.");
         break;
     }
