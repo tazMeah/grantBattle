@@ -27,6 +27,9 @@ grantHealth -= (Math.ceil(Math.random()*2));
 
     //if Grant's health equals 0
     if (grantHealth <= 0) {
+        if (grantHealth === -1) {
+            grantHealth = 0; // negative health doesn't make sense.
+        }
         //grant is defeated AND you get 1 win, Grant gets 10 health points
         yourWins++;
         console.log(`Fatal blow! Grant has ${grantHealth} health.`);
@@ -50,7 +53,11 @@ grantHealth -= (Math.ceil(Math.random()*2));
 
     //if Grant wins, game over.
     if (yourHealth <= 0) {
-        console.log("Grant beat you. Game over.");
+        if (yourHealth === -1) {
+            yourHealth = 0; //negative health doesn't make sense.
+        }
+        console.log(`Fatal blow! ${yourName} has 0 health left.`)
+        console.log("Grant wins! Game over.");
         break;
     }
 
