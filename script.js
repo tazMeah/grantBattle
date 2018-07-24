@@ -1,4 +1,5 @@
 //ask user to play a game
+"use strict";
  let confirmation = prompt("Do you want to play a game against Grant?");
  
  if (confirmation.toLowerCase() == "yes")
